@@ -4,7 +4,13 @@ export default class Server {
 
     host: string
     port: number
-    routes: Hapi.ServerRoute[] = []
+
+    set routes(value: Hapi.ServerRoute[]) {
+        value.forEach((route) => {
+            this.hapi.route(route)
+        })
+    }
+    
 
     hapi: Hapi.Server
 
@@ -18,12 +24,12 @@ export default class Server {
         })
     }
 
-    prepare(): void {
-        this.hapi.initialize()
+    async prepare(): Promise<void> {
+        await this.hapi.initialize()
     }
 
-    start(): void {
-        this.hapi.start()
+    async start(): Promise<void> {
+        await this.hapi.start()
     }
 
     stop(): void {
