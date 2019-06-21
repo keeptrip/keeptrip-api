@@ -3,7 +3,14 @@ jobs:
   check_types:
     docker:
       - image: circleci/node:lts
+    
+    working_directory: ~/repo
+
     steps:
+      - checkout
+
+      - run: npm install
+
       - run:
           name: Check TS types
           command: npm run server-check-types
