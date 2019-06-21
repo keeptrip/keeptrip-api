@@ -1,1 +1,15 @@
 version: 2
+jobs:
+  check_types:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - run:
+          name: Check TS types
+          command: npm run server-check-types
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - check_types
