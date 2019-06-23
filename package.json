@@ -1,5 +1,5 @@
 {
-  "name": "keeptrip",
+  "name": "keeptrip-api",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -49,12 +49,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Namielusi/keeptrip.git"
+    "url": "git+https://github.com/keeptrip/keeptrip-api.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Namielusi/keeptrip/issues"
+    "url": "https://github.com/keeptrip/keeptrip-api/issues"
   },
-  "homepage": "https://github.com/Namielusi/keeptrip#readme"
+  "homepage": "https://github.com/keeptrip/keeptrip-api#readme"
 }
