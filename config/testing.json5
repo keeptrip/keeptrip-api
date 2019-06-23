@@ -6,7 +6,7 @@
     database: {
         dialect: 'postgres',
         host: 'localhost',
-        port: 5434,
+        port: 5432,
         name: 'keeptrip_test',
         user: 'postgres',
         pass: 'testpass'
