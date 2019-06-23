@@ -1,6 +1,7 @@
 version: 2
 jobs:
-  test:
+  build:
+    working_directory: ~/repo
     docker:
       - image: circleci/node:lts
       - image: circleci/postgres:latest
@@ -8,8 +9,6 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: testpass
           POSTGRES_DB: keeptrip_test
-    
-    working_directory: ~/repo
 
     environment:
       NODE_ENV: testing
