@@ -30,6 +30,8 @@ export default class Server {
 
     async start(): Promise<void> {
         await this.hapi.start()
+
+        console.log(`Server started at: ${this.hapi.info.uri}`)
     }
 
     stop(): void {
