@@ -1,18 +1,18 @@
 import config from 'config'
 
-import Server from './Server'
-import routes from './routes'
+import { Server } from './Server'
+import { routes } from './routes'
 
 import './database'
 
-interface IServerConf {
+interface ServerConf {
     host: string;
     port: number;
 }
 
-const serverConf: IServerConf = config.get('server')
+const serverConf: ServerConf = config.get('server')
 
-async function start() {
+async function start(): Promise<void> {
     const server = new Server(serverConf.host, serverConf.port)
 
     server.routes = routes

@@ -2,7 +2,7 @@ import path from 'path'
 import { Sequelize } from 'sequelize-typescript'
 import config from 'config'
 
-interface IDBConfig {
+interface DBConfig {
     dialect: string;
     host: string;
     port: number;
@@ -11,7 +11,7 @@ interface IDBConfig {
     pass: string;
 }
 
-const dbConfig: IDBConfig = config.get('database')
+const dbConfig: DBConfig = config.get('database')
 
 export const sequelize = new Sequelize({
     dialect: dbConfig.dialect,
