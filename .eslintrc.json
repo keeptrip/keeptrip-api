@@ -1,7 +1,12 @@
 {
+  "env": {
+    "node": true,
+    "mocha": true
+  },
   "parser": "@typescript-eslint/parser",
   "plugins": [
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "mocha"
   ],
   "extends": [
     "airbnb-base",
@@ -14,7 +19,25 @@
     "project": "./tsconfig.json"
   },
   "rules": {
-    "semi": 0,
-    "import/prefer-default-export": 0
-  }
+    "semi": "off",
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": ["error", {
+      "devDependencies": [
+        "src/test/**/*"
+      ]
+    }]
+  },
+  "overrides": [
+    {
+      "files": ["*-test.ts", "*.spec.ts"],
+      "rules": {
+        "prefer-arrow-callback": "off",
+        "mocha/prefer-arrow-callback": "error",
+        "mocha/no-mocha-arrows": "error",
+        "mocha/no-skipped-tests": "warn",
+        "mocha/no-pending-tests": "warn",
+        "func-names": "off"
+      }
+    }
+  ]
 }
