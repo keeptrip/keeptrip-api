@@ -3,12 +3,12 @@ import { Sequelize } from 'sequelize-typescript'
 import config from 'config'
 
 interface IDBConfig {
-    dialect: string
-    host: string
-    port: number
-    name: string
-    user: string
-    pass: string
+    dialect: string;
+    host: string;
+    port: number;
+    name: string;
+    user: string;
+    pass: string;
 }
 
 const dbConfig: IDBConfig = config.get('database')
@@ -22,6 +22,6 @@ export const sequelize = new Sequelize({
     password: dbConfig.pass,
 
     modelPaths: [
-        path.join(__dirname, 'models')
-    ]
+        path.join(__dirname, 'models'),
+    ],
 })

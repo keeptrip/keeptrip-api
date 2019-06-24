@@ -1,3 +1,4 @@
+/* eslint-disable */
 const config = require('config')
 
 const { database: dbConfig } = config

@@ -1,4 +1,4 @@
-import Hapi from "@hapi/hapi"
+import Hapi from '@hapi/hapi'
 
 export default class Server {
 
@@ -10,7 +10,7 @@ export default class Server {
             this.hapi.route(route)
         })
     }
-    
+
 
     hapi: Hapi.Server
 
