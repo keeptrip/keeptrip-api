@@ -34,3 +34,7 @@ jobs:
       - run:
           name: Run database migrations
           command: npm run migrations:run
+      
+      - run:
+          name: Run linter
+          command: npm run lint
