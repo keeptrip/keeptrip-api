@@ -1,9 +1,7 @@
-import Hapi from "@hapi/hapi"
+import Hapi from '@hapi/hapi'
 
-import { rootRoute } from "./rootRoute"
+import { rootRoute } from './rootRoute'
 
-const output: Hapi.ServerRoute[] = [
-    rootRoute
+export const routes: Hapi.ServerRoute[] = [
+    rootRoute,
 ]
-
-export default output

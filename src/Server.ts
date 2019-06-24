@@ -1,20 +1,19 @@
-import Hapi from "@hapi/hapi"
+import Hapi from '@hapi/hapi'
 
-export default class Server {
+export class Server {
+    private host: string
 
-    host: string
-    port: number
+    private port: number
 
-    set routes(value: Hapi.ServerRoute[]) {
-        value.forEach((route) => {
+    public set routes(value: Hapi.ServerRoute[]) {
+        value.forEach((route): void => {
             this.hapi.route(route)
         })
     }
-    
 
-    hapi: Hapi.Server
+    public hapi: Hapi.Server
 
-    constructor(host: string, port: number) {
+    public constructor(host: string, port: number) {
         this.host = host
         this.port = port
 
@@ -24,17 +23,17 @@ export default class Server {
         })
     }
 
-    async prepare(): Promise<void> {
+    public async prepare(): Promise<void> {
         await this.hapi.initialize()
     }
 
-    async start(): Promise<void> {
+    public async start(): Promise<void> {
         await this.hapi.start()
 
         console.log(`Server started at: ${this.hapi.info.uri}`)
     }
 
-    stop(): void {
+    public stop(): void {
         this.hapi.stop()
     }
 }

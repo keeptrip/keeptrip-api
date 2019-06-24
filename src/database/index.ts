@@ -2,16 +2,16 @@ import path from 'path'
 import { Sequelize } from 'sequelize-typescript'
 import config from 'config'
 
-interface IDBConfig {
-    dialect: string
-    host: string
-    port: number
-    name: string
-    user: string
-    pass: string
+interface DBConfig {
+    dialect: string;
+    host: string;
+    port: number;
+    name: string;
+    user: string;
+    pass: string;
 }
 
-const dbConfig: IDBConfig = config.get('database')
+const dbConfig: DBConfig = config.get('database')
 
 export const sequelize = new Sequelize({
     dialect: dbConfig.dialect,
@@ -22,6 +22,6 @@ export const sequelize = new Sequelize({
     password: dbConfig.pass,
 
     modelPaths: [
-        path.join(__dirname, 'models')
-    ]
+        path.join(__dirname, 'models'),
+    ],
 })
