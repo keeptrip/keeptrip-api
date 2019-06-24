@@ -1,22 +1,36 @@
 version: 2
 jobs:
-  check_types:
+  build:
+    working_directory: ~/repo
     docker:
       - image: circleci/node:lts
-    
-    working_directory: ~/repo
+      - image: circleci/postgres:latest
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: testpass
+          POSTGRES_DB: keeptrip_test
+
+    environment:
+      NODE_ENV: testing
 
     steps:
       - checkout
 
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@5'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
 
       - run:
           name: Check TS types
           command: npm run server-check-types
-
-workflows:
-  version: 2
-  test:
-    jobs:
-      - check_types
+      
+      - run:
+          name: Run database migrations
+          command: npm run migrations:run
