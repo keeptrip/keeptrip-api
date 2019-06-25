@@ -48,19 +48,7 @@ module.exports = merge(mainConfig, {
                 test: /\.(js|ts)/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: [
-                            ["@babel/env", {
-                                "modules": false,
-                            }],
-                            "@babel/typescript"
-                        ],
-                        plugins: [
-                            "@babel/proposal-class-properties",
-                            "@babel/proposal-object-rest-spread"
-                        ]
-                    }
+                    loader: "babel-loader"
                 }
             }
         ]

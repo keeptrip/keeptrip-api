@@ -15,12 +15,18 @@
 		// Import non-ES modules as default imports.
 		"esModuleInterop": true,
 
-		"experimentalDecorators": true
+		"experimentalDecorators": true,
+
+		"baseUrl": ".",
+		"paths": {
+			"@src/*": ["src/*"],
+			"@test/*": ["test/*"]
+		}
 	},
 	"exclude": [
 		"node_modules"
 	],
 	"include": [
-		"src/**/*"
+		"src/**/*", "test/**/*"
 	]
 }
