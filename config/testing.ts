@@ -1,4 +1,6 @@
-{
+import { Config } from "./types";
+
+const config: Config = {
     server: {
         host: 'localhost',
         port: 80
@@ -12,3 +14,5 @@
         pass: 'testpass'
     }
 }
+
+export default config
