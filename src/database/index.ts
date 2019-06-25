@@ -2,6 +2,8 @@ import path from 'path'
 import { Sequelize } from 'sequelize-typescript'
 import config from 'config'
 
+import { Trip } from './models/Trip'
+
 interface DBConfig {
     dialect: string;
     host: string;
@@ -20,8 +22,9 @@ export const sequelize = new Sequelize({
     database: dbConfig.name,
     username: dbConfig.user,
     password: dbConfig.pass,
-
-    modelPaths: [
-        path.join(__dirname, 'models'),
-    ],
+    logging: false,
 })
+
+sequelize.addModels([
+    Trip
+])
