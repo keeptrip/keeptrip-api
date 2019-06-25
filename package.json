@@ -70,7 +70,7 @@
     "server-check-types": "tsc",
     "lint": "eslint src --ext .js,.ts",
     "test": "mocha src/test/**/*.ts --require ts-node/register --colors --recursive",
-    "migrations:add": "sequelize migration:create --underscored --name trips",
+    "migrations:add": "sequelize migration:create --underscored --name",
     "migrations:run": "sequelize db:migrate",
     "migrations:undo": "sequelize db:migrate:undo"
   },
