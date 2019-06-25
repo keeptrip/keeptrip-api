@@ -1,8 +1,8 @@
 import Hapi from '@hapi/hapi'
 
-export const rootRoute: Hapi.ServerRoute = {
+export const route: Hapi.ServerRoute = {
     method: 'get',
-    path: '/',
+    path: '/trips',
     handler(req, h): object {
         return {
             message: 'OK',

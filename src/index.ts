@@ -1,7 +1,7 @@
 import config from 'config'
 
 import { Server } from './Server'
-import { routes } from './controllers/routes'
+import { routes } from './controllers'
 
 import './database'
 
