@@ -4,7 +4,7 @@ import { Trip } from '@src/database/models/Trip'
 
 export const route: Hapi.ServerRoute = {
     method: 'get',
-    path: '/trips',
+    path: '/trips/public',
     async handler(req, h): Promise<object> {
         const { rows, count } = await Trip.findAndCountAll()
 

@@ -1,9 +1,15 @@
 import Hapi from '@hapi/hapi'
 
-import { route as getAllRoute } from './getAll'
-import { route as getByIdRoute } from './getById'
+import { route as createRoute } from './create'
+import { route as findAllPublicRoute } from './findAllPublic'
+import { route as findOneByIdRoute } from './findOneById'
+import { route as updateRoute } from './update'
+import { route as destroyRoute } from './destroy'
 
 export const routes: Hapi.ServerRoute[] = [
-    getAllRoute,
-    getByIdRoute,
+    createRoute,
+    findAllPublicRoute,
+    findOneByIdRoute,
+    updateRoute,
+    destroyRoute,
 ]
