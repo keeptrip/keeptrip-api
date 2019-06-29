@@ -40,6 +40,7 @@ module.exports = merge(mainConfig, {
         filename: 'dev.bundle.js'
     },
 
+    devtool: 'inline-source-map',
     watch: true,
 
     module: {
