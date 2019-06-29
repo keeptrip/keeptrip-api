@@ -1,3 +1,4 @@
+import '@test'
 import { assert } from 'chai'
 import config from 'config'
 
