@@ -2,7 +2,7 @@ import path from 'path'
 import { Sequelize } from 'sequelize-typescript'
 import config from 'config'
 
-import { Trip } from './models/Trip'
+import { Trip } from '@src/database/models/Trip.model'
 
 interface DBConfig {
     dialect: string;
