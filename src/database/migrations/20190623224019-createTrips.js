@@ -5,10 +5,10 @@ module.exports = {
   up: (queryInterface, Sequelize) => queryInterface.sequelize.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp";')
     .then(() => queryInterface.createTable('trips', {
       id: {
-        type: Sequelize.UUID,
+        type: Sequelize.STRING(50),
         allowNull: false,
         primaryKey: true,
-        defaultValue: Sequelize.fn('uuid_generate_v4'),
+        defaultValue: null,
       },
       title: {
         type: Sequelize.STRING(255)
