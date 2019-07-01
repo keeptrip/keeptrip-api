@@ -1,39 +1,30 @@
-import Hapi from '@hapi/hapi'
+import { Server } from 'http';
+import express from 'express'
+import { ApolloServer } from 'apollo-server-express'
 
-export class Server {
-    private host: string
+import { TripResolver } from '@src/controllers/trip/TripResolver';
+import { buildSchema } from 'type-graphql';
 
-    private port: number
+export const startServer = async (port: number): Promise<Server> => {
+    const schema = await buildSchema({
+        resolvers: [TripResolver]
+    })
+    const server = new ApolloServer({
+        schema,
+        playground: true,
+    })
 
-    public set routes(value: Hapi.ServerRoute[]) {
-        value.forEach((route): void => {
-            this.hapi.route(route)
-        })
-    }
+    const app = express()
+    server.applyMiddleware({
+        app,
+        path: '/',
+    })
 
-    public hapi: Hapi.Server
+    return app.listen({ port }, () => {
+        console.log(`Server ready at http://localhost:${port}${server.graphqlPath}`)
+    })
+}
 
-    public constructor(host: string, port: number) {
-        this.host = host
-        this.port = port
-
-        this.hapi = new Hapi.Server({
-            port,
-            host,
-        })
-    }
-
-    public async prepare(): Promise<void> {
-        await this.hapi.initialize()
-    }
-
-    public async start(): Promise<void> {
-        await this.hapi.start()
-
-        console.log(`Server started at: ${this.hapi.info.uri}`)
-    }
-
-    public stop(): void {
-        this.hapi.stop()
-    }
+export const stopServer = async (server: Server): Promise<void> => {
+    await server.close()
 }
